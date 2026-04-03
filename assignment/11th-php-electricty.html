@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Electricity Bill</title>
+    <script src="../js/jquery-1.8.2.min.js">
+        
+    </script>
+    <script>
+        
+    </script>
+</head>
+<body>
+    <center>
+        <form action="11th-php-electricty-process.php">
+            <span value="10" name="unitID">Units Consumed:</span>
+            <input type="text" name="txtUnits" placeholder="Enter Number of Units">
+            <br>
+            <br>
+            <input type="checkbox" name="chkFan" value="50">Fan : Rs 50/-
+            <input type="text" name="qtyFan" placeholder="Enter Number of Units">
+            <br>
+            <br>
+            <input type="checkbox" name="chkAc" value="100">AC : Rs 100/-
+            <input type="text" name="qtyAc" placeholder="Enter Number of Units">
+            <br>
+            <br>
+            Discount:
+            <input type="radio" name="rad" value="10">10%
+            <input type="radio" name="rad" value="20">20%
+            <br>
+            <br>
+            <input type="submit">
+        </form>
+    </center>
+</body>
+</html>

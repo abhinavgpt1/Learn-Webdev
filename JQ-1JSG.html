@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JQ basics</title>
+    <script src="js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#btnClick").click(function() {
+                alert("1st button");
+            });
+            $("#btnClick2").dblclick(function() {
+                alert("2nd button");
+            });
+            $(".btnAn").click(nonAnonymous);
+
+            function nonAnonymous() {
+                alert("non anonymous function");
+                var value = $(this).val();
+                //                var value = $(this).val("123");
+                alert("value of this button is = " + value);
+            }
+            $("#btnJoin").click(function() {
+                var fn = $("#txtFn").val();
+                var ln = $("#txtLn").val();
+                var join = fn + " " + ln;
+                $("#txtJoin").val(join);
+            });
+
+            //            $("#txtFn").blur(blurCheck("first name"));
+            //            function blurCheck(str){
+            //                var value=$(this).val();
+            //                if(value=="") 
+            //                   alert("Fill "+str);
+            //            }
+            $("#txtFn").blur(function() {
+                var value = $(this).val();
+                if (value == "")
+                    alert("Fill details");
+            });
+        $("#txtLn").blur(function() {
+                var value = $(this).val();
+                if (value == "")
+                    alert("Fill details");
+            });
+        });
+
+    </script>
+</head>
+
+<body>
+    <input type="button" id="btnClick" value="Click">
+    <input type="button" id="btnClick2" value="Click*2">
+    <input type="button" class="btnAn" value="ClickAnon">
+    <br>
+    First Name : <input type="text" id="txtFn"><br>
+    Last Name : <input type="text" id="txtLn"><br>
+    Joined : <input type="text" id="txtJoin" readonly>
+    <br>
+    <input type="button" id="btnJoin" value="JOIN">
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../../js/jquery-1.8.2.min.js"></script>
+    <title>TRY</title>
+    <script>
+        $(document).ready(function(){
+            $("#txtBox").blur(function(){
+                if($(this).val()=="")
+                    alert("Fill it");
+            });
+        });
+    </script>
+</head>
+<body>
+    <center>
+        <form action="php-try.php" method="post">
+            Input: <input type="text" name="txt" id="txtBox">
+            <br>
+            <br>
+            <input type="submit">
+        </form>
+    </center>
+</body>
+</html>

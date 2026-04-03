@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>signup</title>
+    <script src="js/jquery-1.8.2.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#btn").click(function() {
+                $("#win").css("display", "block");
+                $(this).hide(1000);
+            });
+            $("#cross").click(function() {
+                $("#win").fadeOut(1000);
+                $("#btn").slideDown();
+                $("#txtId").val("");
+                $("#txtPass").val("");
+                $("#txtMob").val("");
+                $("#errId1").removeClass("ok").removeClass("not-ok");
+                $("#errId2").html("*");
+            });
+            $("#txtId").blur(function() {
+                var value = $(this).val();
+                if (value == "") {
+                    $("#errId2").html("Fill Details");
+                    $("#errId1").removeClass("ok").addClass("not-ok");
+                } else {
+                    $("#errId2").html("okay");
+                    $("#errId1").removeClass("not-ok");
+                    $("#errId1").addClass("ok");
+                }
+            });
+            $("#txtPass").blur(function() {
+                var value = $(this).val();
+                var l = value.length;
+                if (l < 8) {
+                    $("#errPass2").html("Fill upto min:8 , max:10 characters");
+                    $("#errPass1").removeClass("ok").addClass("not-ok");
+                } else {
+                    $("#errPass2").html("okay");
+                    $("#errPass1").removeClass("not-ok").addClass("ok");
+                }
+            });
+            $("#txtMob").blur(function() {
+                var value = $(this).val();
+
+                if (value.length != 10) {
+                    $("#errMob2").html("Fill valid no.");
+                    $("#errMob1").removeClass("ok").addClass("not-ok");
+                } else {
+                    $("#errMob2").html("okay");
+                    $("#errMob1").removeClass("not-ok").addClass("ok");
+                }
+
+            });
+        });
+
+    </script>
+    <style>
+        #btn,
+        #btnlog {
+            width: 70px;
+            background-color: gainsboro;
+            border: 2px black solid;
+            padding: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        #win {
+            margin-top: 30px;
+            width: 300px;
+            /*            height: 250px;*/
+            box-shadow: 0px 0px 1px 1px gray;
+            display: none;
+        }
+
+        #cross {
+            background-image: url(pics/closeico.png);
+            background-size: contain;
+            width: 30px;
+            height: 30px;
+            float: right;
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        .ok {
+            background-image: url(pics/ok.png);
+            height: 25px;
+            width: 25px;
+            background-size: contain;
+        }
+
+        .not-ok {
+            background-image: url(pics/not.png);
+            height: 25px;
+            width: 25px;
+            background-size: contain;
+        }
+
+    </style>
+</head>
+
+<body>
+    <center>
+        <div id="btn">Sign In</div>
+
+        <div id="win">
+            <div id="cross"></div>
+            <table width="100%" cellspacing="5">
+                <tr>
+                    <td>Username:</td>
+                    <td><input type="text" id="txtId"></td>
+                    <td>
+                        <div id="errId1"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3"><span id="errId2">*</span></td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td><input type="password" maxlength="10" id="txtPass"></td>
+                    <td>
+                        <div id="errPass1"></div>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td colspan="3"><span id="errPass2">*</span></td>
+                </tr>
+                <tr>
+                    <td>Mobile No.</td>
+                    <td><input type="number" min="1000000000" max="9999999999" style="width:88%" id="txtMob"></td>
+                    <td>
+                        <div id="errMob1"></div>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td colspan="3"><span id="errMob2">*</span></td>
+                </tr>
+            </table>
+        </div>
+
+    </center>
+</body>
+
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Basic Calc</title>
+    <style>
+        input[type="text"]:hover {
+            background-color: lightgrey;
+            box-shadow: 0px 0px 5px 3px darkgoldenrod;
+            cursor: pointer;
+
+        }
+
+        input[type="button"]:hover {
+            background-color: lightgrey;
+            box-shadow: 0px 0px 5px 3px darkgoldenrod;
+            cursor: pointer;
+        }
+
+    </style>
+    <script>
+        var universalString = "";
+        var lastOperator = "";
+        var result = 0;
+        var temp = 0;
+        var countDot=0;
+        var tempIsDecimal=false;
+        //        var tempOdd = 0;
+        //        var tempEven = 0;
+        //        var flag = false; //false for even number th element, true for odd th number element
+
+        function doSingleDigit(value) {
+            universalString += value;
+            document.getElementById("txtOutput").value = universalString;
+            value = parseFloat(value);
+            //            if (flag)
+            //                tempEven = tempEven * 10 + value;
+            //            else
+            //                tempOdd = tempOdd * 10 + value;
+            
+            //            console.log(tempOdd+" "+tempEven);
+            if(tempIsDecimal){
+                countDot++;
+                temp=temp+value*Math.pow(10,-countDot);
+            }
+            else
+                temp = temp * 10 + value;
+            console.log("temp=" + temp);
+        }
+
+        function doLastWork() {
+            if (result == "")
+                result = temp;
+            else {
+                switch (lastOperator) {
+                    case "+":
+                        result += temp;
+                        break;
+                    case "-":
+                        result -= temp;
+                        break;
+                    case "*":
+                        result *= temp;
+                        break;
+                    case "/":
+                        result /= temp;
+                        break;
+                }
+            }
+        }
+
+        function doPlus() {
+            doLastWork();
+            universalString += "+";
+            document.getElementById("txtOutput").value = universalString;
+
+            temp = 0;
+            tempIsDecimal=false;
+            countDot=0;
+            lastOperator = "+";
+            //            if (flag)
+            //                result = result + tempEven;
+            //            else
+            //                result = result + tempOdd;
+            //            tempOdd = tempEven = 0;
+            //            console.log(tempOdd + " " + tempEven);
+            //            
+            //            document.getElementById("txtOutput").value = result;
+            console.log("Result=" + result);
+            //            flag = !flag;
+        }
+
+        function doEqual() {
+            switch (lastOperator) {
+                case "+":
+                    result += temp;
+                    break;
+                case "-":
+                    result -= temp;
+                    break;
+                case "*":
+                    result *= temp;
+                    break;
+                case "/":
+                    result /= temp;
+                    break;
+            }
+
+            universalString = result;
+            //            universalString = String(result);
+            document.getElementById("txtOutput").value = universalString;
+            temp = 0;
+            tempIsDecimal=false;
+            countDot=0;
+            
+            lastOperator = "";
+            //            console.log(universalString+1);
+        }
+
+        function doClearAll() {
+            document.getElementById("txtOutput").value = 0;
+            result = 0;
+            temp = 0;
+            tempIsDecimal=false;
+            countDot=0;
+            
+            universalString = "";
+            lastOperator = "";
+        }
+
+        function doMinus() {
+            doLastWork();
+            universalString += "-";
+            document.getElementById("txtOutput").value = universalString;
+
+            temp = 0;
+            tempIsDecimal=false;
+            countDot=0;
+            lastOperator = "-";
+            //            if (flag)
+            //                result = result + tempEven;
+            //            else
+            //                result = result + tempOdd;
+            //            tempOdd = tempEven = 0;
+            //            console.log(tempOdd + " " + tempEven);
+            //            
+            //            document.getElementById("txtOutput").value = result;
+            console.log("Result=" + result);
+            //            flag = !flag;
+        }
+
+        function doMultiply() {
+            doLastWork();
+            universalString += "*";
+            document.getElementById("txtOutput").value = universalString;
+
+            temp = 0;
+            tempIsDecimal=false;
+            countDot=0;
+            lastOperator = "*";
+            //            if (flag)
+            //                result = result + tempEven;
+            //            else
+            //                result = result + tempOdd;
+            //            tempOdd = tempEven = 0;
+            //            console.log(tempOdd + " " + tempEven);
+            //            
+            //            document.getElementById("txtOutput").value = result;
+            console.log("Result=" + result);
+            //            flag = !flag;
+        }
+
+        function doDivide() {
+            doLastWork();
+            universalString += "/";
+            document.getElementById("txtOutput").value = universalString;
+
+            temp = 0;
+            tempIsDecimal=false;
+            countDot=0;
+            lastOperator = "/";
+            //            if (flag)
+            //                result = result + tempEven;
+            //            else
+            //                result = result + tempOdd;
+            //            tempOdd = tempEven = 0;
+            //            console.log(tempOdd + " " + tempEven);
+            //            
+            //            document.getElementById("txtOutput").value = result;
+            console.log("Result=" + result);
+            //            flag = !flag;
+        }
+
+        function doDecimal() {
+            universalString+=".";
+            document.getElementById("txtOutput").value = universalString;
+
+            tempIsDecimal=true;
+        }
+
+        function doBackspace() {
+
+            var lastChar = universalString.slice(universalString.length - 1, universalString.length);
+            if (parseInt(lastChar)>=0) {
+                if(tempIsDecimal){
+                    temp=temp*Math.pow(10,countDot);
+                    temp=temp-temp%10;
+                    temp=temp/Math.pow(10,countDot);
+                    countDot--;
+                }
+                else
+                    temp = (temp - temp % 10) / 10;
+            } else if(lastChar=="."){
+               tempIsDecimal=false;
+            } else{
+                lastOperator = "";
+            }
+            //            alert(lastChar);
+            universalString = universalString.substr(0, universalString.length - 1);
+            document.getElementById("txtOutput").value = universalString;
+        }
+
+    </script>
+    
+</head>
+
+<body>
+    <center>
+        <form action="">
+            <table border="3" cellspacing="15">
+                <tr>
+                    <td colspan="3"><input type="text" id="txtOutput" value="0" style="text-align: right;" readonly></td>
+                    <td align="center"><input type="button" value="AC" id="btnClearAll" onclick="doClearAll();"></td>
+                </tr>
+
+                <tr>
+                    <td align="center"><input type="button" value="1" id="btn1" onclick="doSingleDigit(1);"></td>
+                    <td align="center"><input type="button" value="2" id="btn2" onclick="doSingleDigit(2);"></td>
+                    <td align="center"><input type="button" value="3" id="btn3" onclick="doSingleDigit(3);"></td>
+                    <td align="center"><input type="button" value="+" id="btnPlus" onclick="doPlus();"></td>
+                </tr>
+
+                <tr>
+                    <td align="center"><input type="button" value="4" id="btn4" onclick="doSingleDigit(4);"></td>
+                    <td align="center"><input type="button" value="5" id="btn5" onclick="doSingleDigit(5);"></td>
+                    <td align="center"><input type="button" value="6" id="btn6" onclick="doSingleDigit(6);"></td>
+                    <td align="center"><input type="button" value="-" id="btnMinus" onclick="doMinus();"></td>
+                </tr>
+
+                <tr>
+                    <td align="center"><input type="button" value="7" id="btn7" onclick="doSingleDigit(7);"></td>
+                    <td align="center"><input type="button" value="8" id="btn8" onclick="doSingleDigit(8);"></td>
+                    <td align="center"><input type="button" value="9" id="btn9" onclick="doSingleDigit(9);"></td>
+                    <td align="center"><input type="button" value="*" id="btnMultiply" onclick="doMultiply();"></td>
+                </tr>
+                <tr>
+                    <td align="center"><input type="button" value="0" id="btn0" onclick="doSingleDigit(0);"></td>
+                    <td align="center"><input type="button" value="." id="btnDot" onclick="doDecimal()"></td>
+                    <td align="center"><input type="button" value="<-|" id="btnBckSpc" onclick="doBackspace();"></td>
+                    <td align="center"><input type="button" value="/" id="btnDivide" onclick="doDivide();"></td>
+                </tr>
+
+
+                <tr>
+                    <td colspan="3"><input style="width:100%;" type="button" id="btnEqual" onclick="doEqual();" value="="></td>
+                    <td></td>
+                </tr>
+            </table>
+        </form>
+    </center>
+</body>
+
+</html>
+<!--TO DO
+1.precedence
+-->
+<!--debug it
+1. multiple times operator key pressed 16+++++++++++9...just don;t make it display...internally works fine
+-->
+<!--Understand it
+1.multiple times operator key pressed...nothing happens on program
+2.multiple times equal key pressed...nothing happens on program...since temp got zero(0) whenever operator gets pressed...so no changes at result, but there are changes at universalString
+3.
+-->

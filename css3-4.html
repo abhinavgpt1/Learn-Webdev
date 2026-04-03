@@ -1,0 +1,63 @@
+<html>
+
+<head>
+    <title>CSS program 4</title>
+    <style>
+        #box {
+            background-color: aquamarine;
+            /*            width: 100px;*/
+            padding: 3px;
+            float: left;
+            border: 2px purple dashed;
+            margin-left: 10px;
+        }
+
+        .btn {
+            background-color: skyblue;
+            /*            width: 30px;*/
+            padding: 3px;
+            float: left;
+            margin-left: 10px;
+            border: 2px yellow solid;
+
+        }
+
+        span {
+            background-color: beige;
+            /*            width: 0px;*/
+            padding: 3px;
+            float: left;
+            margin-left: 10px;
+            border: 2px red solid;
+        }
+
+        #box span2,
+        #box span3 {
+            background-color: beige;
+            /*            width: 0px;*/
+            padding: 3px;
+            float: left;
+            margin-left: 10px;
+            border: 2px red solid;
+        }
+
+    </style>
+</head>
+
+<body>
+    <a class="btn">
+        <span>LOGIN</span>
+        <span>LOGIN</span>
+        <span2>LOGIN(span2)</span2>
+        <div id="box">
+            <span2>LOGIN(span2)</span2>
+        </div>
+    </a>
+    <br>
+    <br>
+    <span>Forgot</span>
+    <span2>Forgot</span2>
+    <!--doesn't work as a button-->
+</body>
+
+</html>

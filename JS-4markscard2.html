@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Marks card 2</title>
+    <script>
+        var defaultCpp=51;
+        var defaultJava=50;
+        var defaultWebd=49;
+        function chkCpp() {
+            var ctrlCpp = document.getElementById("txtCpp");
+            if (ctrlCpp.value == "") {
+                document.getElementById("errCpp").innerHTML = "Fill it first";
+                document.getElementById("txtCpp").style.backgroundColor = "red";
+            } else {
+
+                document.getElementById("errCpp").innerHTML = "OK";
+                ctrlCpp.style.backgroundColor = "inherit";
+            }
+        }
+
+        function chkJava() {
+            var ctrlJava = document.getElementById("txtJava");
+            if (ctrlJava.value == "") {
+                document.getElementById("errJava").innerHTML = "Fill it first";
+                ctrlJava.style.backgroundColor = "red";
+            } else {
+                document.getElementById("errJava").innerHTML = "OK";
+                document.getElementById("txtJava").style.backgroundColor = "inherit";
+            }
+        }
+
+        function chkWebd() {
+            var ctrlWebd = document.getElementById("txtWebd");
+            var ctrlErr = document.getElementById("errWebd");
+            if (ctrlWebd.value == "") {
+                ctrlErr.innerHTML = "Fill it first";
+                ctrlWebd.style.backgroundColor = "red";
+            } else {
+                ctrlErr.innerHTML = "OK";
+                ctrlWebd.style.backgroundColor = "inherit";
+            }
+        }
+
+        function doTotalMarks() {
+            var mc = document.getElementById("txtCpp").value;
+            var mj = document.getElementById("txtJava").value;
+            var mw = document.getElementById("txtWebd").value;
+            if (mc == "" || mj == "" || mw == "") {
+                alert("Fill All marks");
+                return;
+            }
+            var backs = "";
+            if (mc < 50)
+                backs += "Cpp";
+            if (mj < 50)
+                backs += ",Java";
+            if (mw < 50)
+                backs += ",Webd";
+            if (backs == "") {
+
+                var tot = parseFloat(mc) + parseFloat(mj) + parseFloat(mw);
+                document.getElementById("btnPerc").disabled = false;
+                document.querySelector("#txtTotalMarks").value = tot;
+                document.querySelector("#txtBacklogs").value = "NIL";
+            } else {
+                document.querySelector("#txtBacklogs").value = backs;
+            }
+        }
+
+        function doPerc() {
+            var total = document.querySelector("#txtTotalMarks").value;
+            document.querySelector("#txtPerc").value = total / 3;
+            document.querySelector("#btnResult").disabled = false;
+
+        }
+
+        function doResult() {
+            var per = document.querySelector("#txtPerc").value;
+
+            if (per >= 50)
+                document.querySelector("#txtResult").value = "PASS";
+            else
+                document.querySelector("#txtResult").value = "Fail";
+        }
+        function doClear(){
+            document.querySelector("#btnPerc").disabled=true;
+            document.querySelector("#btnResult").disabled=true;
+            document.querySelector("#txtCpp").value=defaultCpp;
+            document.querySelector("#txtJava").value=defaultJava;
+            document.querySelector("#txtWebd").value=defaultWebd;
+            document.querySelector("#txtTotalMarks").value="";
+            document.querySelector("#txtPerc").value="";
+            document.querySelector("#txtResult").value="";
+            document.getElementById("txtBacklogs").value="";
+        }
+
+    </script>
+</head>
+
+<body>
+    <center>
+        <form action="">
+            <table border="2">
+                <tr>
+                    <td colspan="3">
+                        <center>
+                            <h2>Marks Card Rectified</h2>
+                        </center>
+                </tr>
+                <tr>
+                    <td>Cpp</td>
+                    <td><input type="text" id="txtCpp" value="51" onblur="chkCpp();"></td>
+                    <td>
+                        <font color="red">
+                            <span id="errCpp">
+                                *
+                            </span>
+                        </font>
+                    </td>
+                </tr>
+                <tr bgcolor="green">
+                    <td>Java</td>
+                    <td><input type="text" value="50" id="txtJava" onblur="chkJava();"></td>
+                    <td>
+                        <span id="errJava">
+                            <font color="red">*</font>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Webd</td>
+                    <td><input type="text" value="49" id="txtWebd" onblur="chkWebd();"></td>
+                    <td>
+                        <span id="errWebd">
+                            <font color="red">*</font>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <input type="button" onclick="doTotalMarks();" value="Total">
+                        <input type="button" onclick="doPerc();" id="btnPerc" value="Percentage" disabled>
+                        <input type="button" onclick="doResult();" id="btnResult" value="Result" disabled>
+                        <input type="button" onclick="doClear();" value="Clear">
+                        <input type="reset" >
+                    </td>
+                </tr>
+                <tr>
+                    <td>Total Marks</td>
+                    <td colspan="2"><input type="text" id="txtTotalMarks" readonly></td>
+                </tr>
+                <tr>
+                    <td>Percentage</td>
+                    <td colspan="2"><input type="text" id="txtPerc" readonly></td>
+                </tr>
+                <tr>
+                    <td>Result</td>
+                    <td colspan="2"><input type="text" id="txtResult" readonly></td>
+                </tr>
+                <tr>
+                    <td>Backlogs'</td>
+                    <td colspan="2"><input type="text" id="txtBacklogs" readonly></td>
+                </tr>
+
+            </table>
+        </form>
+    </center>
+</body>
+
+</html>

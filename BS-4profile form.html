@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/jquery-1.8.2.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <title>Profile Form</title>
+</head>
+
+<body>
+    <div class="container" style="background-color:lightgrey">
+        <!--           heading-->
+        <div class="row">
+            <div class="col-md-12 bg-info">
+                <center>
+                    <h2>Shipping Details</h2>
+                </center>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5 bg-secondary" style="padding:0px;">
+                <img src="pics/delivery.jpg" height="500">
+            </div>
+
+            <div class="col-md-7 bg-success form-group" style="padding:0px;">
+                <form>
+                    <!--            row 1-->
+                    <div class="row">
+                        <div class="col-md-5 form-group">
+                            <label for="txtName">Receiver's Name</label>
+                            <input type="text" id="txtName" class="form-control">
+                            <span id="errName">*</span>
+                        </div>
+                        <div class="col-md-5 form-group">
+                            <label for="txtPh">Phone No.</label>
+                            <input type="text" id="txtPh" class="form-control">
+                            <span id="errState">*</span>
+                        </div>
+                        <div class="col-md-2 form-group">
+                            <label for="txtQuan">Quantity</label>
+                            <input type="text" id="txtQuan" class="form-control" value="1">
+                            <span id="errQuan">*</span>
+                        </div>
+
+                    </div>
+                    <!--            row 2-->
+                    <div class="row">
+                        <div class="col-md-3 form-group">
+                            <label for="txtState">State/UT</label>
+                            <input type="text" id="txtState" class="form-control">
+                            <span id="errState">*</span>
+                        </div>
+                        <div class="col-md-4 form-group ml-5">
+                            <label for="txtCity">City</label>
+                            <input type="text" id="txtCity" class="form-control">
+                            <span id="errCity">*</span>
+                        </div>
+                        <div class="col-md-3 form-group ml-5">
+                            <label for="txtZip">Zip</label>
+                            <input type="text" id="txtZip" class="form-control">
+                            <span id="errZip">*</span>
+                        </div>
+                    </div>
+                    <!--            row 3-->
+                    <div class="row">
+                        <div class="col-md-12 form-group">
+                            <label for="txtAdd">Address</label>
+                            <input type="text" id="txtAdd" class="form-control">
+                            <span id="errAdd">*</span>
+                        </div>
+                    </div>
+                    <!--            row 4-->
+                    <div class="row">
+                        <div class="col-md-12 form-group">
+                            <!--                   radio-->
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <input type="radio" aria-label="Radio button for following text input">
+                                    </div>
+                                    <span id="Delivery1">Delivery on Friday, <b>19 June</b></span>
+
+                                </div>
+                                <div class="input-group-prepend offset-md-2">
+                                    <div class="input-group-text">
+                                        <input type="radio" aria-label="Radio button for following text input">
+                                    </div>
+                                    <span id="Delivery1">Delivery on Monday, <b>22 June</b></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label>&nbsp;</label>
+                            <center>
+                                <input type="button" class="btn btn-info" value="Place Order">
+                            </center>
+                            <label>&nbsp;</label>
+                        </div>
+                    </div>
+
+                    <!--            left column image-->
+
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

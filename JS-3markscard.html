@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mark Sheet JS 3</title>
+    <script>
+        function doTotal() {
+
+            var mc = document.getElementById("txtCpp").value;
+            var mj = document.getElementById("txtJava").value;
+            var mw = document.getElementById("txtWebd").value;
+
+            if (mc == "" || mj == "" || mw == "") {
+                alert("Fill Some Data Atlest");
+                return;
+            }
+
+            var string = "";
+            if (mc < 50)
+                string += "Cpp";
+            if (mj < 50)
+                string += "Java";
+            if (mw < 50)
+                string += "Webd";
+            document.getElementById("txtBacklogs").value = string;
+            if (string == "") {
+                var tot = parseFloat(mc) + parseFloat(mj) + parseFloat(mw);
+
+                document.getElementById("txtTotal").value = tot;
+                document.getElementById("btnPerc").disabled = false;
+                document.getElementById("btnResult").disabled = false;
+                document.getElementById("txtBacklogs").value = "NIL";
+
+            }
+        }
+
+        function doPerc() {
+            var per = document.getElementById("txtTotal").value;
+            document.getElementById("txtPerc").value = per / 3;
+        }
+
+        function doResult() {
+            var per = document.getElementById("txtPerc").value;
+            if (per >= 50)
+                document.getElementById("txtResult").value = "PASS";
+            else
+                document.getElementById("txtResult").value = "Fail";
+        }
+
+        function chkCpp() {
+            var ctrlCpp = document.getElementById("txtCpp");
+            if (ctrlCpp.value == "")
+                alert("fill cpp marks");
+        }
+
+        function chkWebd() {
+            var ctrlWebd = document.getElementById("txtWebd");
+            if (ctrlWebd.value == "")
+                alert("fill Webd marks");
+        }
+
+        function chkJava() {
+            var ctrlJava = document.getElementById("txtJava");
+            if (ctrlJava.value == "")
+                alert("fill Java marks");
+        }
+
+    </script>
+</head>
+
+<body>
+    <center>
+        <form action="">
+            <table border="2">
+                <tr>
+                    <td colspan="2">
+                        <center>
+                            <h2>Marks Card</h2>
+                        </center>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Cpp</td>
+                    <td><input type="text" id="txtCpp" value="89" onblur="chkCpp();"></td>
+                </tr>
+                <tr>
+                    <td>Java</td>
+                    <td><input type="text" id="txtJava" value="56" onblur="chkJava();"></td>
+                </tr>
+                <tr>
+                    <td>WebD</td>
+                    <td><input type="text" id="txtWebd" value="45" onblur="chkWebd();"></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="button" onclick="doTotal();" value="Total">
+                        <input type="button" id="btnPerc" onclick="doPerc();" onblur="();" value="Percentage" disabled>
+                        <input type="button" id="btnResult" onclick="doResult();" onblur="();" value="Result" disabled>
+                        <input type="reset" value="Reset">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Total:</td>
+                    <td><input type="text" id="txtTotal" readonly></td>
+                </tr>
+                <tr>
+                    <td>Percentage:</td>
+                    <td><input type="text" id="txtPerc" readonly></td>
+                </tr>
+                <tr>
+                    <td>Result:</td>
+                    <td><input type="text" id="txtResult" readonly></td>
+                </tr>
+                <tr>
+                    <td>Backlogs:</td>
+                    <td><input type="text" id="txtBacklogs" readonly></td>
+                </tr>
+            </table>
+        </form>
+    </center>
+</body>
+
+</html>

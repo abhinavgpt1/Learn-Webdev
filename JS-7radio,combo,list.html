@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Rad,LBox,CBox</title>
+    <script>
+        function doCashBack(id50, id100, ctrlOut) {
+            var sum;
+            if (id50.checked)
+                sum = id50.value; //remember it is a string
+            else if (id100.checked)
+                sum = id100.value;
+            ctrlOut.value = sum;
+        }
+
+        function fun() {
+            alert("Works");
+        }
+
+        function doState(ctrlState, si, sv) {
+            sv.innerHTML = ctrlState.value;
+            si.innerHTML = ctrlState.selectedIndex;
+        }
+
+        function doAdd() {
+            var state = document.getElementById("state");
+            var st = prompt("enter state");
+            var opt = document.createElement("option");
+            opt.text = st;
+            opt.value = st.slice(0, 3);
+            state.append(opt);
+        }
+
+        function doDelete(ctrlState) {
+            var pos = ctrlState.selectedIndex;
+            ctrlState.remove(pos);
+        }
+        function doBill(prices){
+//            alert(prices[2]);
+            var sum=0;
+            for(i=0;i<prices.length;i++)
+                {
+                    if(prices[i].selected)
+                        sum+=parseFloat(prices[i].value);
+                }
+            document.getElementById("bill").innerHTML=sum;
+        }
+    </script>
+</head>
+
+<body>
+    <center>
+        <table>
+            <tr>
+                <td>Get Cashback</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="sync" value=50 id="id50" onclick="fun();">Paytm
+                    <input type="radio" name="sync" value=100 id="id100">PayPal
+                </td>
+            </tr>
+            <tr>
+                <td><input type="button" onclick="doCashBack(id50,id100,radRes)" value="Cashback">
+                    <input type="text" id="radRes"></td>
+            </tr>
+        </table>
+        <hr>
+        <hr>
+        <hr>
+        <table>
+            <tr>
+                <td>State</td>
+            </tr>
+            <tr>
+                <td>
+                    <select id="state" size="3" onchange="doState(this,spanIndex,spanValue)">
+                        <option value="none">Select</option>
+                        <option value="pun">Punjab</option>
+                        <option value="har">Haryana</option>
+                        <option value="him">Himachal</option>
+                    </select>
+                    <input type="button" value="ADD" onclick="doAdd();">
+                    <input type="button" value="Delete" onclick="doDelete(state);">
+                </td>
+            </tr>
+            <tr>
+                <td>Index: <span id="spanIndex"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>Value: <span id="spanValue"></span>
+                </td>
+            </tr>
+
+        </table>
+        <hr>
+        <hr>
+        <hr>
+        Prices:<br>
+        <select multiple id="prices">
+            <option value="100">100</option>
+            <option value="200">200</option>
+            <option value="300">300</option>
+            <option value="400">400</option>
+        </select>
+        <br>
+        <input type="button" onclick="doBill(prices);" value="Bill">
+        <span id="bill"></span>
+    </center>
+</body>
+
+</html>

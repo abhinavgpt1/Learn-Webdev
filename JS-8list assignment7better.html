@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>List assignment 7</title>
+    <script>
+        var burgerList = ["chilly cheese", "paneer king", "chicken grill"];
+        var pizzaList = ["veg house", "chicken golden delight", "farm house", "margherita"];
+
+        function doState(state, model) {
+            var pos=state.selectedIndex;
+            var arr=[];
+            if(pos==1)
+                arr=burgerList;
+            if(pos==2)
+                arr=pizzaList;
+            
+            text="<select id=\"items\" ondblclick=\"doDelete(this.selectedIndex);\" size=\"5\"><option value=\"none\">Select</option>";
+            for(i=0;i<arr.length;i++)
+                {
+                    text+="<option value="+i+"\">"+arr[i]+"</option>";
+                }
+            text+="</select>";
+            model.innerHTML=text;
+        }
+        function doDelete(pos){
+            var ctrl=document.getElementById("items");
+            ctrl.remove(pos);
+            
+        }
+        
+
+    </script>
+</head>
+
+<body>
+    <center>
+        <select id="state" onchange="doState(this,models)">
+            <option value="none">Select</option>
+            <option value="bur">Burger</option>
+            <option value="piz">Pizza</option>
+        </select>
+
+       <br>
+        <span id="models"></span>
+        <br>
+    </center>
+</body>
+
+</html>

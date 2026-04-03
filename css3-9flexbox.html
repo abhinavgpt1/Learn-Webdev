@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title>Flex box</title>
+        <style>
+            .container
+            {
+                background-color: antiquewhite;
+                height:500px;
+                width:900px;
+                margin:auto;
+                border: 2px black solid;
+                
+                display:flex;
+                flex-direction:column;
+/*                align-items:stretch;//////////////doesn't work*/
+                align-items:center;
+/*                justify-content:space-evenly;//////////isn't even an attibute value*/
+                justify-content:center;
+/*                using align-items and justify, we can set the children anywhere in the box(at any 9 places)                */
+
+            }
+            .child{
+                background-color: cadetblue;                         border: 1px yellow solid;
+                margin-right: 20px;
+                width:150px;
+                height:100px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="child">1</div>
+            <div class="child" style="align-self:auto">2</div>
+            <div class="child">3</div>
+        </div>
+    </body>
+</html>

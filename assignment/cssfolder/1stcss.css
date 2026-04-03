@@ -1,0 +1,58 @@
+* {
+    margin: 0px;
+}
+
+body {
+    background-image: url(../picsfolder/b2.jpg);
+    /*    how to fit completely///////////////////////////////////////////*/
+}
+
+#outer {
+/*    background-color: red;*/
+    width: 850px;
+    /*    height:;///////////////////////*/
+    margin: auto;
+}
+
+#parent {
+    /*    background-color: aqua;*/
+    width: 710px;
+    height: 210px;
+    margin-left: 70px;
+    text-align: center;
+}
+
+.child {
+    background-color: white;
+    display: inline-block;
+    height: inherit;
+    width: 200px;
+}
+
+#innerchild-div {
+/*    background-color: aqua;*/
+    height: 100px;
+    width: 170px;
+    float: left;
+    margin-left: 15px;
+}
+
+#element-div {
+    background-color: darkgrey;
+    width: 85px;
+    height: 90px;    margin-top: 10px;
+    float: left;
+}
+.blckchild{
+/*    background-color: blue;*/
+    float:left;
+    margin-left: 15px;
+    font-family:monospace;
+    font-size:12px;
+    width: 200px;
+    height:170px;
+    margin-top:15px;
+    padding-top: 10px;
+    color: white;
+    text-align: left;
+}

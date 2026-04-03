@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Radio/Check</title>
+</head>
+
+<body>
+    <center>
+        <form action="php-3radio-process.php">
+            <table>
+                <tr>
+                    <td>Duration of course
+                        <input type="radio" checked name="rad" value="1 month">Java
+                        <!--if not checked then use isset in php file: to avoid the GET waali error(say none of radiobuttons were selected-->
+                        <input type="radio" name="rad" value="2 month">Webd
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" value="Submit" name="btnSub">
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <form action="php-3check-process.php">
+            Get Total Fee:
+            <input type="checkbox" name="chkJava" value="8200">Java
+            <input type="checkbox" name="chkWebd" value="8000">Webd
+            <br>
+            <input type="submit">
+        </form>
+    </center>
+</body>
+
+</html>

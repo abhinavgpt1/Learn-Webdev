@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		function doCheck() {
+			var sum = 0;
+			var cCtrl = document.getElementById("chkCpp");
+			if (cCtrl.checked == true)
+				sum = sum + parseInt(cCtrl.value);
+
+			var jCtrl = document.getElementById("chkJava");
+			if (jCtrl.checked == true)
+				sum = sum + parseInt(jCtrl.value);
+
+			var wCtrl = document.getElementById("chkWeb");
+			if (wCtrl.checked == true)
+				sum = sum + parseInt(wCtrl.value);
+
+			document.getElementById("chkTotal").innerHTML = "Toal Fee=" + sum;
+		}
+
+		function doChkAll() {
+			document.getElementById("chkCpp").checked = document.getElementById("chkAll").checked;
+			document.getElementById("chkJava").checked = document.getElementById("chkAll").checked;
+			document.getElementById("chkWeb").checked = document.getElementById("chkAll").checked;
+		}
+
+		function doCashBack(ctrl50, ctrl100, ctrlSpan) {
+			var amount;
+			if (ctrl50.checked == true)
+				amount = ctrl50.value;
+			else
+			if (ctrl100.checked == true)
+				amount = ctrl100.value;
+
+			ctrlSpan.value = "Cash Back=" + amount;
+
+		}
+
+		function doState(ctrlState, sindex, svalue) {
+			svalue.innerHTML = ctrlState.value;
+			sindex.innerHTML = ctrlState.selectedIndex;
+
+		}
+
+		function doDelete() {
+			var ctrlState = document.getElementById("state");
+			//var pos = ctrlState.selectedIndex;
+			var val=ctrlState.value;
+			ctrlState.remove(val);
+		}
+
+		function doAdd() {
+			var count = prompt("N?");
+			for (i = 1; i <= count; i++) 
+			{
+				var item = prompt("Enter New State:"); //Rajsthan
+
+				var opt = document.createElement("option");
+
+				opt.text = item;
+				opt.value = item;
+
+				document.getElementById("state").append(opt);
+			}
+		}
+		function doBill()
+			{
+				var prices=document.getElementById("prices");
+				var sum=0;
+				for(i=0;i<prices.length;i++)
+				{
+					
+					if(prices[i].selected==true)
+					{
+						sum=sum+ parseInt(prices[i].value);
+					}
+				}
+				document.getElementById("billamt").innerHTML="Bill="+sum;
+				
+				
+			}
+	</script>
+</head>
+
+<body>
+	<center>
+		<table>
+			<tr>
+				<td>
+					Total Fee:
+					<br>
+					<input type="checkbox" id="chkAll" onclick="doChkAll();">Select All
+					<br>
+					<input type="checkbox" value="5800" id="chkCpp">C++
+					<input type="checkbox" value="8200" id="chkJava">Java
+					<input type="checkbox" value="8200" id="chkWeb">Full Stack Web Development
+					<br>
+					<input type="button" value="Total Fee" onClick="doCheck();">
+					<br>
+					<span id="chkTotal">*</span>
+				</td>
+			</tr>
+		</table>
+		<hr>
+		<hr>
+		<table>
+			<tr>
+				<td>
+					Cash Back on Payment Mode:
+					<br>
+					<input type="radio" value="50" name="cash" id="id50">PayTm
+					<input type="radio" value="100" name="cash" id="id100">PayPal
+					<br>
+					<input type="button" value="Get Cash back" onclick="doCashBack(id50,id100,radRes);">
+					<br>
+					<input type="text" id="radRes">
+				</td>
+			</tr>
+		</table>
+		<hr>
+		<h3>Combo Box and ListBox</h3>
+		<table>
+			<tr>
+				<td>
+					State: <br>
+					<select id="state" size="3" onchange="doState(this,sindex,svalue);">
+						<option value="none">Select</option>
+						<option value="Punjab">Punjab</option>
+						<option value="Himachal">Himachal</option>
+						<option value="Haryana">Haryana</option>
+					</select>
+					<input type="button" value="Delete" onclick="doDelete();">
+					<input type="button" value="Add" onclick="doAdd();">
+					<br>
+					Index:<span id="sindex">*</span> <br>
+					Value: <span id="svalue">*</span>
+				</td>
+			</tr>
+		</table>
+<hr>
+<hr>
+<p>
+	Prices: <br><select  id="prices" size="5" multiple>
+		<option value="100">100</option>	
+		<option value="200">200</option>	
+		<option value="300">300</option>	
+		<option value="400">400</option>	
+	</select>kl
+	<p>
+		<input type="button" value="Bill" onclick="doBill();">
+	</p>
+	<span id="billamt">*</span>
+</p>
+	
+	</center>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+

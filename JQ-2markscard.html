@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<!--Advancement can be done in error checking and decision making-->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Marks Card(JQ)</title>
+    <script src="js/jquery-1.8.2.min.js"> </script>
+    <script>
+        var totalPressed = false;
+        $(document).ready(function() {
+            function errCpp() {
+
+                var value = $(this).val();
+                
+                if (value == "") {
+                    $("#errCpp").html("<font color=\"red\">*</font>");
+                } else {
+                    $("#errCpp").html("OK");
+                }
+                totalPressed = false;
+            }
+
+            function errJava() {
+
+                var value = $(this).val();
+                if (value == "") {
+                    $("#errJava").html("<font color=\"red\">*</font>");
+                } else {
+                    $("#errJava").html("OK");
+                }
+                totalPressed = false;
+            }
+
+            function errWebd() {
+
+                var value = $(this).val();
+                if (value == "") {
+                    $("#errWebd").html("<font color=\"red\">*</font>");
+                } else {
+                    $("#errWebd").html("OK");
+                }
+                totalPressed = false;
+            }
+
+            $("#txtCpp").blur(errCpp);
+            $("#txtJava").blur(errJava);
+            $("#txtWebd").blur(errWebd);
+            
+            $("#btnTot").click(function() {
+                var cpp = $("#txtCpp").val();
+                var java = $("#txtJava").val();
+                var web = $("#txtWebd").val();
+                $("#txtTot").val("");
+                if (cpp == "" || java == "" || web == "")
+                    alert("Fill the details");
+                else {
+                    cpp = parseFloat(cpp);
+                    java = parseFloat(java);
+                    web = parseFloat(web);
+                    var backs = "";
+                    if (cpp < 50)
+                        backs += "CPP,";
+                    if (java < 50)
+                        backs += "Java,";
+                    if (web < 50)
+                        backs += "WebD";
+                    if (backs == "") {
+                        var tot = cpp + java + web;
+                        $("#txtTot").val(tot);
+                        
+                        $("#btnPer").prop("disabled",false);
+                        $("#btnRes").prop("disabled",false);
+                        
+                    } else {
+                        $("#txtBac").val(backs);
+                        $("#txtRes").val("FAIL");
+                    }
+                    totalPressed = true;
+                }
+            });
+            $("#btnPer").click(function() {
+                var tot = $("#txtTot").val();
+                if (totalPressed)
+                    $("#txtPer").val(parseFloat(tot) / 3);
+                else
+                    $("#txtPer").val("");
+            });
+            $("#btnRes").click(function() {
+                $("#txtRes").val("PASS");
+            });
+            $("#btnClear").click(function() {
+                $("#txtTot").val("");
+                $("#txtPer").val("");
+                $("#txtRes").val("");
+                $("#txtBac").val("");
+                $("#txtCpp").val("");
+                $("#txtJava").val("");
+                $("#txtWebd").val("");
+                $("#errCpp").html("<font color=\"red\">*</font>");
+                $("#errJava").html("<font color=\"red\">*</font>");
+                $("#errWebd").html("<font color=\"red\">*</font>");
+                
+                $("#btnPer").prop("disabled",false);
+                $("#btnRes").prop("disabled",false);
+
+            });
+        });
+
+    </script>
+</head>
+
+<body>
+    <center>
+        <table border="2">
+            <tr>
+                <td colspan="3" align="center">
+                    <h2>Marks Card</h2>
+                </td>
+            </tr>
+            <tr>
+                <td>CPP:</td>
+                <td><input type="text" id="txtCpp"></td>
+                <td><span id="errCpp">
+                        <font color="red">*</font>
+                    </span></td>
+            </tr>
+            <tr>
+                <td>Java:</td>
+                <td><input type="text" id="txtJava"></td>
+                <td><span id="errJava">
+                        <font color="red">*</font>
+                    </span></td>
+            </tr>
+            <tr>
+                <td>Webd:</td>
+                <td><input type="text" id="txtWebd"></td>
+                <td><span id="errWebd">
+                        <font color="red">*</font>
+                    </span></td>
+            </tr>
+            <tr>
+                <td colspan="3" align="center">
+                    <input type="button" value="Total" id="btnTot">
+                    <input type="button" value="Per" id="btnPer" disabled>
+                    <input type="button" value="Result" id="btnRes" disabled>
+                    <input type="button" value="Clear" id="btnClear">
+                </td>
+            </tr>
+            <tr>
+
+                <td>Total:</td>
+                <td colspan="2"><input type="text" readonly id="txtTot"></td>
+            </tr>
+            <tr>
+                <td>Percentage:</td>
+                <td colspan="2"><input type="text" readonly id="txtPer"></td>
+            </tr>
+            <tr>
+                <td>Result:</td>
+                <td colspan="2"><input type="text" readonly id="txtRes"></td>
+            </tr>
+            <tr>
+                <td>Backlogs:</td>
+                <td colspan="2"><input type="text" readonly id="txtBac"></td>
+            </tr>
+        </table>
+    </center>
+</body>
+
+</html>

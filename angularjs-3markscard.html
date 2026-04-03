@@ -1,0 +1,100 @@
+<!--Lacks humongous functionalities-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Angularjs JSG</title>
+	<script src="js/angular.min.js">
+	</script>
+	<script>
+		var module=angular.module("mymodule",[]);
+		module.controller("mycontroller",function($scope){
+			$scope.doTotal=function(){
+                $scope.total=parseFloat($scope.cpp)+parseFloat($scope.java)+parseFloat($scope.webd);
+            }
+            $scope.doPer=function(){
+                $scope.per=$scope.total/3;
+            }
+            $scope.doResult=function(){
+                if($scope.per>50)
+                    $scope.result="Pass";
+                else
+                    $scope.result="Pass";
+            }
+            $scope.doBack=function(){
+                $scope.str="";
+                if($scope.cpp<50)
+                    $scope.str+="cpp,";
+                if($scope.java<50)
+                    $scope.str+="java,";
+                if($scope.webd<50)
+                    $scope.str+="webd,";
+                $scope.backlogs=$scope.str;
+                if($scope.str=="")
+                    $scope.backlogs="NIL";
+                    
+                    
+            }
+		})
+	
+	</script>
+</head>
+<body ng-app="mymodule" ng-controller="mycontroller">
+<!--Lacks humongous functionalities-->
+    <center>
+        <table border="2">
+            <tr>
+                <td colspan="3" align="center">
+                    <h2>Marks Card</h2>
+                </td>
+            </tr>
+            <tr>
+                <td>CPP:</td>
+                <td><input type="text" ng-model="cpp"></td>
+                <td><span id="errCpp">
+                        <font color="red">*</font>
+                    </span></td>
+            </tr>
+            <tr>
+                <td>Java:</td>
+                <td><input type="text" ng-model="java"></td>
+                <td><span id="errJava">
+                        <font color="red">*</font>
+                    </span></td>
+            </tr>
+            <tr>
+                <td>Webd:</td>
+                <td><input type="text" ng-model="webd"></td>
+                <td><span id="errWebd">
+                        <font color="red">*</font>
+                    </span></td>
+            </tr>
+            <tr>
+                <td colspan="3" align="center">
+                    <input type="button" value="Total" ng-click="doTotal();">
+                    <input type="button" value="Percentage" id="btnPer" ng-click="doPer();">
+                    <input type="button" value="Result" ng-click="doResult();">
+                    <input type="button" value="Backlogs" ng-click="doBack();">
+                </td>
+            </tr>
+            <tr>
+
+                <td>Total:</td>
+                <td colspan="2"><input type="text" readonly ng-model="total"></td>
+            </tr>
+            <tr>
+                <td>Percentage:</td>
+                <td colspan="2"><input type="text" readonly ng-model="per"></td>
+            </tr>
+            <tr>
+                <td>Result:</td>
+                <td colspan="2"><input type="text" readonly ng-model="result"></td>
+            </tr>
+            <tr>
+                <td>Backlogs:</td>
+                <td colspan="2"><input type="text" readonly ng-model="backlogs"></td>
+            </tr>
+        </table>
+    </center>
+</body>
+</html>

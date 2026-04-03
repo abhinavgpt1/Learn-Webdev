@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Angular jsg</title>
+    <script src="js/angular.min.js"></script>
+    <script>
+        var module = angular.module("mymodule", []);
+        module.controller("mycontroller", function($scope) {
+            $scope.fn = "first name";
+//            $scope.st1; can be avoided from declaration
+//            $scope.st2; can be avoided from declaration
+            
+            $scope.doCopy = function() { //anonymous function
+                $scope.str2 = $scope.str1;
+            }
+        })
+
+    </script>
+</head>
+
+<body ng-app="mymodule" ng-controller="mycontroller">
+    First name: <input type="text" ng-model="fn">
+    <br>
+    Repeated First name: <input type="text" ng-model="fn">
+    <br>
+    Repeated Again:
+    {{fn}}
+    <hr>
+    <hr>
+
+    <input type="text" ng-model="str1">
+    <!--    str1 will form no matter what inside angular js code-->
+    <br>
+    <input type="button" value="Do Copy" ng-click="doCopy();">
+    <br>
+    <input type="text" ng-model="str2">
+    <!--    str2 will form no matter what inside angular js code-->
+
+</body>
+
+</html>

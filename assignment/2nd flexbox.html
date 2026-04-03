@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Flex Box</title>
+    <style>
+        #container {
+            background-color:red;
+            width: 900px;
+            height: 560px;
+            margin: auto;            
+            
+            border: 2px gray solid;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .row {
+/*            background-color: cornflowerblue;*/
+            border-bottom: 1px black solid;
+            width: inherit;
+            height:140px;
+            text-align: center;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-direction: row;
+        }
+
+        label {
+            font-family: franklin gothic;
+            font-size: 30px;
+            /*            margin-top: 20px;       NO NEED as row is its parent*/
+        }
+
+        .imgparent {
+            width: 160px;
+            height: 210px;
+            background-color: red;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .imgchild {
+            background-color: indianred;
+            width: inherit;
+            height: 175px;
+            font-family: serif;
+            font-size: 20px;
+
+/*            text-align: */
+        }
+        .imgparent:hover{
+            box-shadow: 0px 0px 7px 8px gray;
+        }
+
+        descrption{
+            width: inherit;
+            height:inherit;
+            text-align: left;
+        }
+
+        .imgchild img {
+            height: inherit;
+            width: inherit;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="container">
+       <div class="row" style="height:50px; background-color:beige">
+            <label>OUR TEAM</label>
+        </div>
+        <div class="row" style="height:230px;">
+            <div class="imgparent">
+                <div class="imgchild">
+                    <img src="picsfolder/f1.jfif" alt="">
+                </div>
+                <div class="imgchild">Name</div>
+            </div>
+            <div class="imgparent">
+                <div class="imgchild">
+                    <img src="picsfolder/f2.jpeg" alt="">
+                </div>
+                <div class="imgchild">Name</div>
+            </div>
+            <div class="imgparent">
+                <div class="imgchild">
+                    <img src="picsfolder/f3.jpeg" alt="">
+                </div>
+                <div class="imgchild">Name</div>
+            </div>
+        </div>
+        <div class="row" style="height:50px;background-color:beige"><label>OUR PRODUCTS</label></div>
+
+
+
+
+        <div class="row" style="height:230px;">
+            <div class="imgparent" style="width:190px;justify-content: flex-start;">
+                <div class="imgchild" style="height:160px;">
+                    <img src="picsfolder/advice_yoda_gives.jpg" alt="">
+                </div>
+                <div class="imgchild" style="height:50px;font-size: 10px;">
+                <description>
+                jjjjjjjjjjjjj Line1 lllllllllll<br>mmmmmmm Line2 nnnnnnn <br>
+                oooooo Line3 zzzzzz<br>qqqqqqqq Line4 wwwwwww
+                </description>
+                </div>
+            </div>
+            <div class="imgparent" style="width:190px;justify-content: flex-start;">
+                <div class="imgchild" style="height:160px;">
+                    <img src="picsfolder/img2.jpg" alt="">
+                </div>
+                <div class="imgchild" style="height:50px;font-size: 10px;">
+                <description>
+                jjjjjjjjjjjjj Line1 lllllllllll<br>mmmmmmm Line2 nnnnnnn <br>
+                oooooo Line3 zzzzzz<br>qqqqqqqq Line4 wwwwwww
+                </description>
+                </div>
+            </div>
+            <div class="imgparent" style="width:190px;justify-content: flex-start;">
+                <div class="imgchild" style="height:160px;">
+                    <img src="picsfolder/OriginalTroll.png" alt="">
+                </div>
+                <div class="imgchild" style="height:50px;font-size: 10px;">
+                <description>
+                jjjjjjjjjjjjj Line1 lllllllllll<br>mmmmmmm Line2 nnnnnnn <br>
+                oooooo Line3 zzzzzz<br>qqqqqqqq Line4 wwwwwww
+                </description>
+                </div>
+            </div>
+            <div class="imgparent" style="width:190px;justify-content: flex-start;">
+                <div class="imgchild" style="height:160px;">
+                    <img src="picsfolder/shopping-bag-icon-copy.png" alt="">
+                </div>
+                <div class="imgchild" style="height:50px;font-size: 10px;">
+                <description>
+                jjjjjjjjjjjjj Line1 lllllllllll<br>mmmmmmm Line2 nnnnnnn <br>
+                oooooo Line3 zzzzzz<br>qqqqqqqq Line4 wwwwwww
+                </description>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</body>
+
+</html>

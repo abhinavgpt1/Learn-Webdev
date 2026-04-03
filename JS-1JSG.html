@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS program 1</title>
+    <script>
+        function fun1(){
+            console.log("hello")
+        }
+        function fun2()
+        {
+            document.write("hello 2")
+        }
+        function fun3()
+        {
+            alert("hello")
+        }
+        function fun5(){
+            alert("see g changed: "+g)
+            alert("x "+x)
+        }
+        var g="no default value";
+        function fun4(){
+            var x="hi";
+            alert("Hello "+x+" Global: "+g);
+            var y;
+            alert("y="+y)
+            alert("hi"+(g=123456))
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="button 1" onclick="fun1()">
+    <input type="button" value="button 2" onclick="fun2()">
+    <input type="button" value="button 3" onclick="fun3()">
+    <br>
+<!--    ondblclick is implemented here-->
+    <input type="button" value="button 4" ondblclick="fun4()">
+    <input type="button" value="button 5" onclick="fun5()">
+
+</body>
+</html>

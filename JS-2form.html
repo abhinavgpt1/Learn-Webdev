@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JS 2forms</title>
+    <script>
+        function doProd() {
+            var va = document.frm1.txtA.value;
+            var vb = document.frm1.txtB.value;
+            var prod = va * vb;
+            document.frm1.txtProd.value = prod;
+        }
+
+        function doDiv() {
+            var va = document.frm1.txtA.value;
+            var vb = document.frm1.txtB.value;
+            var div = va / vb;
+            document.frm1.txtDiv.value = div;
+        }
+
+        function doSum() {
+            var va = document.frm1.txtA.value;
+            var vb = document.frm1.txtB.value;
+            //            var sum=va+vb;
+            //            var sum=parseInt(va)+parseInt(vb);
+            var sum = parseFloat(va) + parseFloat(vb);
+            document.frm1.txtSum.value = sum;
+        }
+
+        function doClear() {
+            document.frm1.txtA.value = "";
+            document.frm1.txtB.value = "";
+            document.frm1.txtSum.value = "";
+        }
+        function doJoin()
+        {
+            var fn=document.frm2.fn.value;
+            var ln=document.frm2.ln.value;
+            var joined=fn+" "+ln;
+            document.frm2.joined.value=joined;
+        }
+    </script>
+</head>
+
+<body>
+    <center>
+        <form name="frm1">
+            <table>
+                <tr>
+                    <td align="center">
+                        <h2>Form1 calculator</h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Enter A</td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="txtA"></td>
+                </tr>
+                <tr>
+                    <td>Enter B</td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="txtB" autofocus></td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <input type="button" value="PRODUCT" onclick="doProd();">
+                        <input type="button" value="DIV" onclick="doDiv();">
+                        <input type="button" value="SUM" onclick="doSum();">
+                        <input type="button" value="Clear" onclick="doClear();">
+                        <input type="reset" value="Reset">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Product:<input type="text" name="txtProd" disabled>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Division:<input type="text" name="txtDiv" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Sum:<input type="text" name="txtSum" readonly></td>
+                </tr>
+            </table>
+        </form>
+        <form name="frm2">
+            <table>
+                <tr>
+                    <td align="center">
+                        <h2>Form2 calculator</h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                       <input type="text" placeholder="first name" name="fn">
+                       <input type="text" placeholder="last name" name="ln">
+                       <input type="button" value="join" onclick="doJoin();">
+                       <input type="text" name="joined"><br>
+                       <center>
+                       <input type="reset" value="Reset2"></center>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </center>
+</body>
+
+</html>

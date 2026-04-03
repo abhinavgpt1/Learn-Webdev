@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JS 5 checkbox</title>
+    <script>
+        function doTotal() {
+            var cpp = document.getElementById("chkCpp");
+            var java = document.getElementById("chkJava");
+            var wbd = document.getElementById("chkWebd");
+            var sum = 0;
+            if (cpp.checked)
+                sum += parseFloat(cpp.value);
+            if (java.checked)
+                sum += parseFloat(java.value);
+            if (wbd.checked)
+                sum += parseFloat(wbd.value);
+
+            document.querySelector("#spanTotal").innerHTML = sum;
+        }
+        function doChkAll(){
+            document.getElementById("chkCpp").checked=true;
+            document.getElementById("chkJava").checked=true;
+            document.getElementById("chkWebd").checked=true;
+        }
+    </script>
+</head>
+
+<body>
+    <center>
+        Total Fees:<br>
+        
+        <input type="checkbox" id="chkAll" onclick="doChkAll();">Select All<br>
+        <input type="checkbox" id="chkCpp" value="5000">C++
+        <input type="checkbox" id="chkJava" value="8000">Java
+        <input type="checkbox" id="chkWebd" value="9000">Webd
+        <br>
+        <input type="button" value="Total" onclick="doTotal();">
+        <span id="spanTotal" width="100">*</span>
+
+    </center>
+</body>
+
+</html>

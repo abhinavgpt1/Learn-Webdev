@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tiki-shiki4</title>
+    <script>
+//        function checkDisc(){
+//            var disc=document.getElementById("txtDisc");
+//            if(disc.value=="")
+//                alert("Fill in the discount");
+//            else
+//                document.getElementById("btnBill").disabled=false;
+//        }
+        function doBilling(){
+            var disc=document.getElementById("txtDisc1").value;
+            if(disc=="")
+                {alert("Fill in the discount");return;}
+            var tiki=document.getElementById("chkTiki");
+            var bha=document.getElementById("chkBhalla");
+            var gol=document.getElementById("chkGol");
+            var sum=0;
+            if(tiki.checked)
+                sum+=parseFloat(tiki.value);
+            if(bha.checked)
+                sum+=parseFloat(bha.value);
+            if(gol.checked)
+                sum+=parseFloat(gol.value);
+            document.getElementById("txtTotal").value=sum;
+            disc=parseFloat(disc);
+            var net=sum-disc;
+
+            document.getElementById("txtDisc2").value=disc;
+            document.getElementById("txtNet").value=net;
+        }
+        function doReset(){                   //Function DOESN'T WORK FOR RESET BUTTON
+            document.getElementById("chkTiki").checked=true;
+            document.getElementById("chkBhalla").checked=false;
+            document.getElementById("chkGol").checked=false;
+            document.getElementById("txtDisc1").value="0";
+            document.getElementById("txtDisc2").value="";
+            document.getElementById("txtNet").value="";
+            document.getElementById("txtTotal").value="";
+            
+        }
+    </script>
+    
+</head>
+<body>
+   <center>
+   <form action="">
+    <table>
+       <tr>
+           <td><input type="checkbox" value="50" id="chkTiki" checked>Tiki</td>
+       </tr>
+       <tr>
+           <td><input type="checkbox" value="90" id="chkBhalla">Bhalla </td>
+       </tr>
+       <tr>
+           <td><input type="checkbox" value="20" id="chkGol">Gol Gappe </td>
+       </tr>
+       <tr>
+           <td>Discount(in Rs):<input type="text" id="txtDisc1" value="0"></td>
+       </tr>
+       <tr>
+           <td><input type="button" value="Billing" onclick="doBilling();"></td>
+       </tr>
+       <tr>
+           <td><input type="text" readonly id="txtTotal"></td>
+       </tr>
+       <tr>
+           <td>
+           <input type="text" readonly id="txtDisc2">
+           <input type="text" readonly id="txtNet">
+           </td>
+       </tr>
+       <tr>
+           <td><input type="button" onclick="doReset();" value="Clear"></td>
+<!--           <td><input type="reset" onclick="doReset();"></td>        USELESS-->
+       </tr>
+       
+    </table>
+    </form>
+    </center>
+</body>
+</html>

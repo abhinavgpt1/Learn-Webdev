@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Calc</title>
+    <style>
+        input[type="text"]:hover {
+            background-color: lightgrey;
+            box-shadow: 0px 0px 5px 3px darkgoldenrod;
+            cursor: pointer;
+
+        }
+
+        input[type="button"]:hover {
+            background-color: lightgrey;
+            box-shadow: 0px 0px 5px 3px darkgoldenrod;
+            cursor: pointer;
+        }
+
+    </style>
+    <script>
+        function doSingleDigit(value, ctrlOutput) {
+            if (ctrlOutput.value == "0")
+                ctrlOutput.value = value;
+            else
+                ctrlOutput.value += value;
+        }
+
+        function doOperator(op, ctrlOutput) {
+            var str = ctrlOutput.value;
+            var lastChar = str.substr(str.length - 1, str.length);
+            var flag = 0;
+            switch (lastChar) {
+                case "+":
+                case "-":
+                case "*":
+                case "/":
+                case ".":
+                    flag = 1;
+            }
+            //            console.log(op.value + " "+flag);
+
+            if (flag == 0)
+                ctrlOutput.value += op.value;
+            else {
+                ctrlOutput.value = str.substr(0, str.length - 1) + op.value;
+            }
+        }
+
+        function doEqual(ctrlOutput) {
+            var lastChar = ctrlOutput.value.slice(ctrlOutput.value.length - 1, ctrlOutput.value.length);
+            if (lastChar != "+" && lastChar != "-" && lastChar != "*" && lastChar != "/" && lastChar != ".")
+                ctrlOutput.value = eval(ctrlOutput.value);
+            else
+                alert("Invalid Format");
+        }
+
+        function doClearAll() {
+            document.getElementById("txtOutput").value = "0";
+        }
+
+        function doDecimal(ctrlOutput) {
+            var str = ctrlOutput.value;
+            var lastChar = str.substr(str.length - 1, str.length);
+            var flag = 0;
+            switch (lastChar) {
+                case "+":
+                case "-":
+                case "*":
+                case "/":
+                case ".":
+                    flag = 1;
+            }
+            if (flag == 0)
+                ctrlOutput.value += ".";
+            else
+                ctrlOutput.value = str.substr(0, str.length - 1) + ".";
+
+        }
+
+        function doBackspace(ctrlOutput) {
+            var str = ctrlOutput.value;
+            if (str != "0") {
+                ctrlOutput.value = str.slice(0, str.length - 1);
+            }
+        }
+
+    </script>
+
+</head>
+
+<body>
+    <center>
+        <form action="">
+            <table border="3" cellspacing="15">
+                <tr>
+                    <td colspan="3"><input type="text" id="txtOutput" value="0" style="text-align: right;" readonly></td>
+                    <td align="center"><input type="button" value="AC" onclick="doClearAll();"></td>
+                </tr>
+
+                <tr>
+                    <td align="center"><input style="width:100%;" type="button" value="1" onclick="doSingleDigit(1,txtOutput);"></td>
+                    <td align="center"><input style="width:100%;" type="button" value="2" onclick="doSingleDigit(2,txtOutput);"></td>
+                    <td align="center"><input style="width:100%;" type="button" value="3" onclick="doSingleDigit(3,txtOutput);"></td>
+                    <td align="center"><input style="width:100%;" type="button" value="+" onclick="doOperator(this,txtOutput);"></td>
+                </tr>
+
+                <tr>
+                    <td align="center"><input style="width:100%;" type="button" value="4" onclick="doSingleDigit(4,txtOutput);"></td>
+                    <td align="center"><input style="width:100%;" type="button" value="5" onclick="doSingleDigit(5,txtOutput);"></td>
+                    <td align="center"><input style="width:100%;" type="button" value="6" onclick="doSingleDigit(6,txtOutput);"></td>
+                    <td align="center"><input style="width:100%;" type="button" value="-" onclick="doOperator(this,txtOutput);"></td>
+                </tr>
+
+                <tr>
+                    <td align="center"><input style="width:100%;" type="button" value="7" onclick="doSingleDigit(7,txtOutput);"></td>
+                    <td align="center"><input style="width:100%;" type="button" value="8" onclick="doSingleDigit(8,txtOutput);"></td>
+                    <td align="center"><input style="width:100%;" type="button" value="9" onclick="doSingleDigit(9,txtOutput);"></td>
+                    <td align="center"><input style="width:100%;" type="button" value="*" onclick="doOperator(this,txtOutput);"></td>
+                </tr>
+                <tr>
+                    <td align="center"><input style="width:100%;" type="button" value="0" onclick="doSingleDigit(0,txtOutput);"></td>
+                    <td align="center"><input style="width:100%;" type="button" value="." onclick="doDecimal(txtOutput)"></td>
+                    <td align="center"><input style="width:100%;" type="button" value="<-|" onclick="doBackspace(txtOutput);"></td>
+                    <td align="center"><input style="width:100%;" type="button" value="/" onclick="doOperator(this,txtOutput);"></td>
+                </tr>
+
+                <tr>
+                    <td colspan="3"><input style="width:100%;" type="button" onclick="doEqual(txtOutput);" value="="></td>
+                    <td></td>
+                </tr>
+            </table>
+        </form>
+    </center>
+</body>
+
+</html>
+<!--TO DO
+1.precedence
+-->
+<!--debug it
+1. multiple times operator key pressed 16+++++++++++9...just don;t make it display...internally works fine
+-->
+<!--Understand it
+1.multiple times operator key pressed...nothing happens on program
+2.multiple times equal key pressed...nothing happens on program...since temp got zero(0) whenever operator gets pressed...so no changes at result, but there are changes at universalString
+3.
+-->

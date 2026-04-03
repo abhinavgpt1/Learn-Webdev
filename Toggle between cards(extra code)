@@ -1,0 +1,53 @@
+                //used in project too
+                <div class="form-row">
+                                <div class="col-md-12">
+                                    <div class="card tab-card">
+                                        <div class="card-header tab-card-header">
+                                            <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
+                                                <li class="nav-item">
+                                                    <a class="nav-link active" id="one-tab" data-toggle="tab" href="#blood-sugar" role="tab" aria-controls="One" aria-selected="true">Blood Sugar</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" id="two-tab" data-toggle="tab" href="#urine-sugar" role="tab" aria-controls="Two" aria-selected="false">Urine Sugar</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="tab-content" id="myTabContent">
+                                            <!--blood-sugar tab-->
+                                            <div class="tab-pane fade show active p-3" id="blood-sugar" role="tabpanel" aria-labelledby="one-tab">
+                                                <div class="form-row">
+                                                    <div class="col-md-8">
+                                                        <label for="">Testing Time</label>
+                                                        <select class="custom-select form-control" id="cmbTimeRecord" name="cmbTimeRecord">
+                                                            <option value="fasting" selected>Fasting</option>
+                                                            <option value="before meal">Before Meal</option>
+                                                            <option value="after meal">After Meal</option>
+                                                            <option value="before exercise">Before Exercise</option>
+                                                            <option value="bedtime">Bedtime</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label for="txtSugarResult">Result</label>
+                                                        <input type="number" class="form-control" id="txtSugarResult" name="txtSugarResult" placeholder="(in mg/dl)">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--urine-sugar tab-->
+
+                                            <div class="tab-pane fade p-3" id="urine-sugar" role="tabpanel" aria-labelledby="two-tab">
+                                                <div class="form-row">
+                                                    <div class="col-md-8">
+                                                        <label for="txtMedIntake">Medicine / Doctor's Advice</label>
+                                                        <input type="text" class="form-control" id="txtMedIntake" name="txtMedIntake">
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label for="txtUrineResult">Result</label>
+                                                        <input type="number" class="form-control" id="txtUrineResult" name="txtUrineResult" placeholder="(in mmol/L)">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>

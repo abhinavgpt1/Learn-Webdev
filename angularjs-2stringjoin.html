@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Join strings</title>
+    <script src="js/angular.min.js"></script>
+    <script>
+        var module = angular.module("mymodule", []);
+        module.controller("mycontroller", function($scope) {
+            $scope.joined;
+            $scope.doJoin = function() {
+                
+                if($scope.fn=="undefined" || $scope.ln=="undefined")//empty fields are "undefined" and not even empty strings
+                    alert("Fill both fields");
+                else
+                    $scope.joined = $scope.fn + " " + $scope.ln;
+            }
+        })
+    </script>
+</head>
+
+<body ng-app="mymodule" ng-controller="mycontroller">
+    First name: <input type="text" ng-model="fn">
+    <br>
+    Last name: <input type="text" ng-model="ln">
+    <br>
+    <input type="button" ng-click="doJoin();" value="Do Join">
+    <br>
+    <input type="text" readonly ng-model="joined">
+    <br>
+    {{joined}}
+</body></html>

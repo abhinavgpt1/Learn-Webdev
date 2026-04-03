@@ -1,0 +1,57 @@
+<html>
+
+<head>
+    <title>CSS Prgram 6 List</title>
+    <style>
+        #box {
+            background-color: indianred;
+            width: 500px;
+            height: 500px;
+        }
+
+        #innerbox {
+            background-color: greenyellow;
+            width: 300px;
+            height: 300px;
+            margin: 30px;
+
+        }
+        #innerinnerbox {
+            background-color:greenyellow;
+            width: 100px;
+            height: 200px;
+            margin: 30px;
+
+        }
+        a{
+            background-color: red;
+        }
+        #box a{
+            background-color: darkgreen;
+        }
+        #box>a{
+            background-color: blue;
+        }
+        #box>#innerbox a{
+            background-color: yellow;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <a>Spam</a>
+        <div id="innerbox">
+            <a>Spam2</a>
+        </div>
+        <a>Spam3</a>
+<!--
+        <div id="innerbox">
+            
+        </div>
+-->
+    </div>
+</body>
+
+</html>

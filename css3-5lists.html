@@ -1,0 +1,124 @@
+<html>
+
+<head>
+    <title>CSS program 5 lists</title>
+    <style>
+        #box {
+            background-color: antiquewhite;
+            width: 800px;
+            height: 500px;
+            border: 3px black solid;
+            margin-left: 300px;
+        }
+
+        #menu {
+            background-color: blue;
+            float: left;
+            width: 200px;
+            height: 500px;
+
+            overflow: scroll;
+
+        }
+
+        #content {
+            background-color: aquamarine;
+            width: 600px;
+            height: 500px;
+            float: left;
+
+        }
+
+        ol {
+            list-style: none;
+/*            float: left; makes ol button infinte long until they get enclosed in a box*/
+            margin: 0px;
+/*            background-color: blue; just for testing*/
+/*            width:200px;*/
+        }
+
+        li {
+            text-align: center;
+            background-color: orangered;
+            margin-left: -40px;
+            line-height: 30px;
+            margin-bottom: 3px;
+/*            border-bottom: 5px black dotted;*/
+        }
+        li:hover{
+            background-color: white;
+            color:orangered;
+            font-weight:bolder;
+            cursor:pointer;
+        }
+        li:before
+        {
+            content:"#" /*&#187 doesn't work this way */;
+        }
+        li:after
+        {
+            content:"&"
+        }
+        a{
+            color:inherit;
+            text-decoration:none;
+/*          text-decoration-color:fuchsia;*/
+        }
+    </style>
+</head>
+
+<body>
+<!--
+    <style>
+        a{
+            color:blue;
+            text-decoration:none;
+          /*text-decoration-color:black;*/
+        }
+    </style>
+    <a style="color:red; text-decoration: overline">MDH</a>
+-->
+        <div id="box">
+            <div id="menu">
+                <ol type='A'>
+                    <li> &#187; Arrays &#188; </li>
+                    
+                    <li><a href="pics/1.jpg">Pic</a></li>
+                    
+                    <a href="pics/121401.jpg"><li>Loops</li></a>
+                    <li>Pointers</li>
+                    <li>Arrays</li>
+                    <li>Pic</li>
+                    <li>Loops</li>
+                    <li>Pointers</li>
+                    <li>Arrays</li>
+                    <li>Pic</li>
+                    <li>Loops</li>
+                    <li>Pointers</li>
+                    <li>Pic</li>
+                    <li>Loops</li>
+                    <li>Pointers</li>
+                    <li>Pic</li>
+                    <li>Loops</li>
+                    <li>Pointers</li>
+                    <li>Pic</li>
+                    <li>Loops</li>
+                    <li>Pointers</li>
+                    <li>Pic</li>
+                    <li>Loops</li>
+                    <li>Pointers</li>
+                    <li>Pic</li>
+                    <li>E</li>
+                    <li>A</li>
+                    <li>B</li>
+                    <li>C</li>
+                    <li>D</li>
+                </ol>
+            </div>
+            <div id="content">
+                sfs
+            </div>
+        </div>
+</body>
+
+</html>

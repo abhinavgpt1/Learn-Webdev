@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Transition</title>
+    <script src="js/jquery-1.8.2.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#btn").click(function() {
+                $("#win").show(1000);
+//                $("#win").fadeIn(1000);
+//                $("#win").slideDown(1000);
+//                $("#win").css("display", "block");
+                $(this).hide();
+            });
+            $("#cross").click(function(){
+                $("#btn").show(1000);
+                $("#win").hide(1000);
+//                $("#win").fadeOut(1000);
+//                $("#win").slideUp(1000);
+//                $("#win").css("display", "none");
+            });
+            $("#txtId").blur(function(){
+               var value=$(this).val();
+
+                if(value=="")
+                {
+                    $("#errId2").html("Fill it");
+                    $("#errId1").removeClass("ok");
+                    $("#errId1").addClass("not-ok");
+                }
+                else{
+                    $("#errId2").html("OKAY");
+                    $("#errId1").removeClass("not-ok").addClass("ok");
+                }
+            });
+        });
+
+    </script>
+    <style>
+        #btn {
+            width: 50px;
+            background-color: gainsboro;
+            border: 2px black solid;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        #win {
+            width: 300px;
+            height: 300px;
+            border: 2px black solid;
+            margin: 20px;
+            display:none;
+        }
+
+        #cross {
+            background-image: url(pics/closeico.png);
+            background-size: contain;
+            height: 30px;
+            width: 30px;
+            float: right;
+            margin: 10px 10px 5px 0px;
+        }
+        .not-ok{
+            background-image: url(pics/not.png);
+            height:30px;
+            width:30px;
+            background-size: contain;
+        }
+        .ok{
+            background-image: url(pics/ok.png);
+            height:30px;
+            width:30px;
+            background-size: contain;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <div id="btn">Signup</div>
+        <div id="win">
+            <div id="cross"></div>
+            <table width="100%" cellspacing="10">
+                <tr>
+                    <td>Username</td>
+                    <td><input type="text" id="txtId"></td>
+                    <td>
+                        <div id="errId1"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <span id="errId2">*</span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </center>
+</body>
+
+</html>

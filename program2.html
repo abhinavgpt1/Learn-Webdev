@@ -1,0 +1,69 @@
+<html>
+    <head>
+        <title>
+            Program 2
+        </title>
+        <marquee>
+            marquee in head tag
+        </marquee>
+    </head>
+    <body  bgcolor="turquoise">
+        <marquee>
+            Headline
+        </marquee>
+        comment can be in<!---->between a line<br>
+        <b>bold tag</b>
+        <u>undeline tag</u>
+        <i>italic tag</i>
+        
+        <p>
+            text line 1, space above and below
+        </p>
+        <p>
+            text line 2, this uses the space above and simultaneously puts one down
+        </p>
+        Difference between br tag and p tag is:<br>
+        br draws the cursor one step down(no space above)
+        while p tag confirms a space above text( contained within its opening and closing tag)
+        <hr>
+        Remember: hr and br don't have closing tags
+        <hr>
+        
+        <h1>Text line 1</h1>
+        <h2>Text line 2</h2>
+        <!-- h3 can be omitted-->
+        <h4>Text line 4</h4>
+        <h5>Text line 5</h5>
+        <h6>Text line 6<br>Text line 6</h6>
+        <h7>Text line 7<!--no effect of h7--></h7>
+        This line has font size as normal
+        <hr>
+        
+        <!--marquees nested-->
+        <marquee bgcolor="yellow" behavior="alternate">
+            Headline 2<br>
+            <marquee bgcolor="green" behavior="alternate">headline 3<br>
+                <marquee bgcolor="gold" behavior="alternate">headline 4</marquee>
+            </marquee>
+        </marquee>
+        <font size="6" face = "bebas neue regular" color = green >
+            text line
+        </font>
+        <marquee>
+            <b><font size="5.5"><!--size is basiclly 5-->e</font></b>
+            <b><font size="5">e</font></b>
+            <b><font size="9">e</font></b>
+        </marquee>
+        
+        <marquee scrollamount="400" scrolldelay="700" behavior="slide">
+            <font size="8" face="helvetica">
+                ==================
+            </font>
+        </marquee>
+        
+        <marquee bgcolor="red" scrollamount="150" scrolldelay="1000" onmouseover="start();" onmouseout="stop();" 
+                 behavior = "alternate">
+            <b>LAST MARQUEE</b>
+        </marquee>
+    </body>
+</html>

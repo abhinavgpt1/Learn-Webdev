@@ -1,0 +1,64 @@
+<html>
+
+<head>
+    <title>CSS program 3
+    </title>
+    <style>
+        .exclusive {
+            background-color: aqua;
+            width: 60px;
+            padding: 3px;
+            float: left;
+            margin-left: 10px;
+
+
+            border-top: 1px orange dashed;
+            border-left: 3px purple dotted;
+            border-right: 4px red dotted;
+            border-bottom: 2px black solid;
+            border-radius: 20px;
+            /*            border: 2px black solid;*/
+            transition: ease all 1s;
+            cursor: pointer;
+        }
+
+        .exclusive:hover {
+            border-radius: 20px 30px 0px 5px;
+            transition: ease all 2.5s;
+/*                        transform: translate(5px, 5px);*/
+
+        }
+        
+        .exclusive:active {
+            transform: translate(5px, 5px);
+        }
+
+        #specific {
+            background-color: beige;
+            width: 60px;
+            padding: 3px;
+            float: left;
+            margin-left: 10px;
+            border: 2px black solid;
+                        transition: ease all 2.5s;
+
+        }
+        span{
+            background-color:aquamarine;
+            width: 60px;
+            padding: 3px;
+            float: left;
+            margin-left: 10px;
+            border: 2px black solid;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="exclusive">Login</div>
+    <div id="specific">Sign IN</div>
+    <span>Forgot</span>
+</body>
+
+</html>

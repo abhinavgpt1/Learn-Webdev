@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>chk,rad,cb,lb</title>
+    <script src="js/jquery-1.8.2.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#btnRad").click(function() {
+
+                if ($("#radC").prop("checked"))
+                    $("#radspan").html($("#radC").val());
+                if ($("#radE").prop("checked"))
+                    $("#radspan").html($("#radE").val());
+            });
+            $("#btnChk").click(function() {
+                var flag = false;
+                $("#chkspan").html("");
+                if ($("#chkCpp").prop("checked")) {
+                    flag = true;
+                    $("#chkspan").html($("#chkCpp").val());
+                }
+                if ($("#chkWebd").prop("checked")) {
+                    if (flag == true)
+                        $("#chkspan").append(",");
+                    $("#chkspan").append($("#chkWebd").val());
+                    flag = true;
+                }
+
+            });
+            $("#city").change(function() {
+                alert($(this).val());
+                alert($(this).prop("selectedIndex"));
+            });
+            $("#btnAdd").click(function() {
+                var text = prompt("Enter city");
+                var value = prompt("Enter city value");
+                if (text != "" && value != "") {
+                    //                    var opt = "<option value=\"" + value + "\">" + text + "</option>";
+                    //                    $("#city").append(opt);
+
+                    //                    OR
+                    var opt = `<option value="${value}">${text}</option>`;
+                    $("#city").append(opt);
+                    //                    OR
+                    //                    $("#city").append(new Option(text,value));
+                    //                    OR
+                    //                                        $("#city").append($('<option>').val(value).text(text));
+
+                }
+            });
+            $("#btnDelCombo").on('click', function() {
+                $("#city option:selected").remove();
+            });
+
+            $("#btnAddState").click(function() {
+                var text = prompt("Enter state");
+                var value = prompt("Enter state value");
+                if (text != "" && value != "") {
+                    $("#state").append(new Option(text, value));
+                }
+            });
+            $("#btnDel").click(function() {
+                $("#state option").each(function(i) {
+                    if ($(this).is(":selected"))
+                        $(this).remove();
+                });
+
+            });
+            //            OR
+            //            $("#btnDel").click(function() {
+            //                $("#state option:selected").remove();
+            //            });
+            $("#btnDelText").click(function() {
+                var text=prompt("Enter state");
+                $("#state option:contains("+text+")").remove();
+            });
+            
+
+            $("#btnDeli").click(function() {
+                var v = parseInt(prompt("Enter index"));
+                $('#state option').eq(v).remove();
+
+            });
+
+            $("#btnShow").click(function() {
+                $("#state option").each(function(){
+                   if($(this).is(":selected"))
+                   {$("#stateShow").append(new Option($(this).text(),$(this).val()));
+//                    $("#stateShow").slideDown(1000);
+//                    $("#stateShow").fadeOut(1000);
+                    $("#stateShow").css("display","block");
+                   }
+                });
+            });
+        });
+
+    </script>
+    <style></style>
+</head>
+
+<body>
+    <center>
+        <input type="radio" checked name="branch" id="radC" value="CSE">C.S.E.
+        <input type="radio" name="branch" id="radE" value="ECE">E.C.E.
+        <br>
+        <input type="button" id="btnRad" value="Click">
+        <br>
+        <span id="radspan"></span>
+    </center>
+    <center>
+        <input type="checkbox" id="chkCpp" value="5800">C++
+        <input type="checkbox" id="chkWebd" value="8200">Webd
+
+        <br>
+        <input type="button" id="btnChk" value="Click">
+        <br>
+        <span id="chkspan">0</span>
+    </center>
+    <br>
+    <center>
+        Combo Box
+        <br>
+        <select id="city">
+            <option value="none">--select--</option>
+            <option value="bti">Bathinda</option>
+            <option value="chd">Chandigarh</option>
+            <option value="ludh">Ludhiana</option>
+        </select>
+        <input type="button" value="Add New" id="btnAdd">
+        <input type="button" value="Delete" id="btnDelCombo">
+
+    </center>
+    <br>
+    <center>
+        List Box
+        <br>
+        <select id="state" multiple size="5">
+            <option value="none">--select--</option>
+            <option value="pun">Punjab</option>
+            <option value="hp">Himachal</option>
+            <option value="mp">Madhya</option>
+        </select>
+        <br>
+        <input type="button" value="Add New" id="btnAddState">
+        <input type="button" value="Delete" id="btnDel">
+        <input type="button" value="Delete at i" id="btnDeli">
+        <input type="button" value="Delete by text" id="btnDelText"><br><br>
+        <input type="button" value="Show" id="btnShow">
+    </center>
+    <br>
+    <center>
+        <select id="stateShow" multiple  size="3" style="display:none">
+
+        </select>
+    </center>
+</body>
+
+</html>

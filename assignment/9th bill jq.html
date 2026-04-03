@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>BILL</title>
+    <script src="../js/jquery-1.8.2.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#chkAll").click(function() {
+
+                if ($(this).prop("checked")) {
+                    $("#chkdos").prop("checked", true);
+                    $("#chktik").prop("checked", true);
+                    $("#chkbha").prop("checked", true);
+                } else {
+                    $("#chkdos").prop("checked", false);
+                    $("#chktik").prop("checked", false);
+                    $("#chkbha").prop("checked", false);
+                }
+
+            });
+            $("#chkdos").click(function() {
+                $("#qtydos").focus();
+            });
+            $("#chktik").click(function() {
+                $("#qtytik").focus();
+            });
+            $("#chkbha").click(function() {
+                $("#qtybha").focus();
+            });
+            $("#rad10").click(function() {
+                //               if($(this).prop("checked")) 
+                //                   $(this).prop("checked","false");////////////////logically wrong
+
+            });
+            $("#chkHome").click(function() {
+                if ($(this).prop("checked"))
+                    $("#chkDin").prop("checked", false);
+                else
+                    $("#chkDin").prop("checked", true);
+            });
+            $("#chkDin").click(function() {
+                if ($(this).prop("checked"))
+                    $("#chkHome").prop("checked", false);
+                else
+                    $("#chkHome").prop("checked", true);
+            });
+            $("#btnBill").click(function() {
+                var sum = 0;
+                var dis = 0;
+                var deliveryCharges = 0;
+                if ($("#chkdos").prop("checked")) {
+                    var qty = parseInt($("#qtydos").val());
+                    if (qty <= 0 || isNaN(qty)) {
+                        alert("fill correct qty");
+                        return;
+                    } else {
+                        sum += parseInt($("#chkdos").val()) * qty;
+                    }
+                }
+                if ($("#chktik").prop("checked")) {
+                    var qty = parseInt($("#qtytik").val());
+                    if (qty <= 0 || isNaN(qty)) {
+
+                        alert("fill correct qty");
+                        return;
+                    } else {
+                        sum += parseInt($("#chktik").val()) * qty;
+                    }
+                }
+                if ($("#chkbha").prop("checked")) {
+                    var qty = parseInt($("#qtybha").val());
+                    if (qty <= 0 || isNaN(qty)) {
+
+                        alert("fill correct qty");
+                        return;
+                    } else {
+                        sum += parseInt($("#chkbha").val()) * qty;
+                    }
+                }
+                if ($("#chkdos").prop("checked") || $("#chktik").prop("checked") || $("#chkbha").prop("checked")) {
+
+                    if ($("#rad10").prop("checked")) {
+                        dis = parseFloat($("#rad10").val());
+                    }
+                    if ($("#rad20").prop("checked")) {
+                        dis = parseFloat($("#rad20").val());
+                    }
+                    if ($("#chkHome").prop("checked"))
+                        deliveryCharges = parseFloat($("#chkHome").val());
+
+                    sum = sum - sum * dis / 100 + deliveryCharges;
+                    $("#txtBill").html(sum);
+                }
+            });
+        });
+
+    </script>
+    <style>
+        #box {
+            width: 300px;
+            height: 200px;
+            border: 2px black solid;
+            padding: 10px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <center>
+        <div id="box">
+            <input type="checkbox" id="chkAll">Select All
+            <br>
+            <input type="checkbox" id="chkdos" value="50">Dosa 50/-
+            <input type="number" id="qtydos">
+            <br>
+            <input type="checkbox" id="chktik" value="30">Tikki 30/-
+            <input type="number" id="qtytik">
+            <br>
+            <input type="checkbox" id="chkbha" value="40">Bhalla 40/-
+            <input type="number" id="qtybha">
+            <br>
+            Discount:
+            <input type="radio" name="dis" id="rad10" value=10>10%
+            <input type="radio" name="dis" id="rad20" value="20">20%
+            <br>
+            Delivery:
+            <input type="checkbox" id="chkHome" checked value="50">Home Delivery
+            <input type="checkbox" id="chkDin" value="0">Dine-in
+            <br>
+            <input type="button" id="btnBill" value="BILL">
+            <br>
+            <span id="txtBill"></span>
+        </div>
+    </center>
+</body>
+
+</html>

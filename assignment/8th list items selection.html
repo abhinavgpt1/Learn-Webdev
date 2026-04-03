@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>list items selection</title>
+    <script>
+        var burgerList = {
+            "Chilly Cheese": 50,
+            "Paneer King": 100,
+            "Chicken Grill": 70
+        };
+        var pizzaList = {
+            "Veg House": 300,
+            "Chicken Golden Delight": 500,
+            "Farm House": 400,
+            "Margherita": 10
+        };
+
+        function doState(ind, models, prices) {
+            var dicty;
+            models.length = prices.length = 0;
+            if (ind == 0)
+                dicty = burgerList;
+            else if (ind == 1)
+                dicty = pizzaList;
+
+            for (x in dicty) {
+                var opt = document.createElement("option");
+                opt.text = x;
+                opt.value = dicty[x];
+                models.append(opt);
+                var opt2 = document.createElement("option");
+                //                here var opt = document.createElement("option"); could be used too
+                opt2.value = x;
+                opt2.text = dicty[x];
+                prices.append(opt2);
+            }
+        }
+
+        function doSelect(model, prices) {
+            //            prices.selectedIndex=pos;
+            for (i = 0; i < model.length; i++) {
+                if (model[i].selected)
+                    prices[i].selected = true;
+                else
+                    prices[i].selected = false;
+            }
+        }
+
+        function doBill(model) {
+            var sum=0;
+            for(i=0;i<model.length;i++)
+                {
+                    if(model[i].selected)
+                        sum+=parseInt(model[i].value);
+                }
+            document.getElementById("txtBill").value=sum;
+        }
+
+    </script>
+</head>
+
+<body>
+    <center>
+        <select id="state" onclick="doState(this.selectedIndex,models,prices)">
+            <!--            <option value="none">Select</option>-->
+            <option value="bur">Burger</option>
+            <option value="piz">Pizza</option>
+        </select>
+        <br>
+        <br>
+        <select id="models" multiple size="5" onchange="doSelect(this,prices);">
+        </select>
+        <select id="prices" size="5" multiple>
+        </select>
+        <br>
+        <br>
+        <input type="button" value="BILL" onclick="doBill(models);">
+        <br>
+        <br>
+        <input type="text" id="txtBill" readonly>
+
+    </center>
+</body>
+
+</html>

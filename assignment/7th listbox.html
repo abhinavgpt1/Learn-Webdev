@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Variety</title>
+    <script>
+        function doState(state, model) {
+            var opt;
+            var pos = state.selectedIndex;
+            model.length=1;
+            if (pos == 1) {
+                opt=document.createElement("option");
+                opt.value="chilly cheese";
+                opt.text="Chilly Cheese";
+                model.append(opt);
+                
+                opt=document.createElement("option");
+                opt.value="chicken grill";
+                opt.text="Chicken Grill";
+                model.append(opt);
+                
+                opt=document.createElement("option");
+                opt.value="panner king";
+                opt.text="Paneer King";
+                model.append(opt);
+            } else if (pos == 2) {
+                opt=document.createElement("option");
+                opt.value="veg house";
+                opt.text="Veg House";
+                model.append(opt);
+                
+                opt=document.createElement("option");
+                opt.value="margherita";
+                opt.text="Margherita";
+                model.append(opt);
+                
+                opt=document.createElement("option");
+                opt.value="farm house";
+                opt.text="Farm House";
+                model.append(opt);
+                
+                opt=document.createElement("option");
+                opt.value="chicken golden delight";
+                opt.text="Chicken Golden Delight";
+                model.append(opt);
+            }
+        }
+        function doDelete(model){
+            var ind=model.selectedIndex;
+            model.remove(ind);
+        }
+    </script>
+</head>
+
+<body>
+    <center>
+        <table>
+            <tr>
+                <td>
+                    <select id="state" onchange="doState(this,models);">
+                        <option value="none">none</option>
+                        <option value="bur">Burger</option>
+                        <option value="piz">Pizza</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <select id="models" size="5" ondblclick="doDelete(this)" style="width:100px;overflow:scroll">
+                        <option value="none">Select</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+    </center>
+</body>
+
+</html>
+<!--
+burger
+chilly cheese
+chicken grill
+paneer king
+pizza
+veg house
+margherita
+farm house
+chicken golden delight
+-->

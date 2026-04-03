@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Json Array</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/jquery-1.8.2.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script>
+        var module = angular.module("mymodule", []);
+        module.controller("mycontroller", function($scope) {
+            $scope.jsonArray = [{
+                    name: "abc",
+                    pwd: "ABC",
+                    mobile: "123"
+                },
+                {
+                    name: "def",
+                    pwd: "DEF",
+                    mobile: "456"
+                },
+                {
+                    name: "ghi",
+                    pwd: "GHI",
+                    mobile: "789"
+                },
+                {
+                    name: "jkl",
+                    pwd: "JKL",
+                    mobile: "012"
+                },
+                {
+                    name: "mno",
+                    pwd: "MNO",
+                    mobile: "345"
+                }
+            ];
+        })
+
+    </script>
+</head>
+
+<body ng-app="mymodule" ng-controller="mycontroller">
+    <center>
+        <table width="500" border="1" rules="all">
+            <tr>
+                <th>S.no.</th>
+                <th>Name</th>
+                <th>Password</th>
+                <th>Mobile</th>
+            </tr>
+            <tr ng-repeat="obj in jsonArray">
+                <!--            <td>{{$index}}</td>   starts with 0 by-default-->
+                <td>{{$index +1}}</td>
+                <td>{{obj.name}}</td>
+                <td>{{obj.pwd}}</td>
+                <td>{{obj.mobile}}</td>
+            </tr>
+        </table>
+    </center>
+</body>
+
+</html>

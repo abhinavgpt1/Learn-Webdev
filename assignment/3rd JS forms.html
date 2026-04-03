@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        input[type="text"] {
+            text-align: right;
+        }
+
+        #button_container {
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+    </style>
+    <script>
+        function doTotalMarks() {
+            var mj = document.card.txtJava.value;
+            var ma = document.card.txtAnd.value;
+            var mw = document.card.txtWebd.value;
+
+            if (mj == "" || ma == "" || mw == "")
+                alert("Assign marks to every subject")
+            else if (mj < 50 || ma < 50 || mw < 50) {
+                var fail = ""
+                if (mj < 50)
+                    fail += "Java,"
+                if (ma < 50)
+                    fail += "Android,"
+                if (mw < 50)
+                    fail += "Webd";
+                document.card.txtTotalMarks.value = "NaN";
+                document.card.txtBacklogs.value = fail;
+                doResult();
+            } else {
+                var sum = parseFloat(mj) + parseFloat(ma) + parseFloat(mw);
+                document.card.txtTotalMarks.value = sum;
+            }
+        }
+
+        function doPercentage() {
+            var tm = document.card.txtTotalMarks.value;
+            if (tm == "NaN") {
+                document.card.txtPercentage.value = "NaN";
+            }
+            //            var p=parseFloat(tm)/3;
+            
+            //else 's case works when tm is ""
+            else {
+                var p = parseFloat(tm) / 300 * 100;
+                document.card.txtPercentage.value = p;
+            }
+        }
+
+        function doResult() {
+
+            var tm = document.card.txtTotalMarks.value;
+            if (tm == "NaN")
+                document.card.txtResult.value = "FAIL";
+            else if (tm == "")
+                alert("Enter details fully!!!")
+            else
+                document.card.txtResult.value = "FAIL";
+        }
+
+    </script>
+</head>
+
+<body>
+    <center>
+        <form name="card">
+            <table border="1" rules="all" width="400" style=" margin: 30px; box-shadow:0px 0px 20px 5px gray; ">
+                <tr>
+                    <td align="center">
+                        <h2>Marks Card</h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table width="60%" align="center">
+                            <tr>
+                                <td>Java:</td>
+                                <td align="right"><input type="text" name="txtJava"></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table width="60%" align="center">
+                            <tr>
+                                <td>Android:</td>
+                                <td align="right"><input type="text" name="txtAnd"></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table width="60%" align="center">
+                            <tr>
+                                <td>WebD:</td>
+                                <td align="right"><input type="text" name="txtWebd"></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="button_container">
+                            <input type="button" onclick="doTotalMarks();" value="Total Marks">
+                            <input type="button" onclick="doPercentage();" value="Percentage">
+                            <input type="button" onclick="doResult()" value="Result(P/F)">
+                            <input type="reset" value="Clear">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table width="80%" align="center">
+                            <tr>
+                                <td>Total Marks</td>
+                                <td align="right"><input type="text" name="txtTotalMarks" readonly></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table width="80%" align="center">
+                            <tr>
+                                <td>Percentage(%)</td>
+                                <td align="right"><input type="text" name="txtPercentage" readonly></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table width="80%" align="center">
+                            <tr>
+                                <td>Result</td>
+                                <td align="right"><input type="text" name="txtResult" readonly></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table width="80%" align="center">
+                            <tr>
+                                <td>Backlogs</td>
+                                <td align="right"><input type="text" name="txtBacklogs" disabled></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </center>
+</body>
+
+</html>

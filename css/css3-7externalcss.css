@@ -1,0 +1,87 @@
+* {
+    margin: 0px;
+}
+
+body {
+    background-color: lightgoldenrodyellow;
+}
+
+#outer {
+    background-color: red;
+    height: 550px;
+    width: 600px;
+    margin:auto;
+}
+#title-div{
+    background-color: palevioletred;
+    width:inherit;
+    height:60px;
+    border-bottom: 3px yellow solid;
+}
+#text-to-button{
+    color:white;
+    font-size:40px;
+    font-family: bebas neue;
+    font-style: italic;
+    font-weight: bold;
+    margin-top:15px;float:left;
+    margin-left:20px;
+}
+#menu-div ol
+{
+    list-style: none;
+/*    background-color: aquamarine;*/
+    width:inherit;
+    height: 38px;
+    border-bottom: 3px yellow solid;
+}
+#menu-div li{
+    display: inline-block;
+/*    float:left;*/
+    margin-top:4px;
+    margin-right:30x;/*    no effect/////////////////////////////////////////////////////////////////////*/
+
+    text-align: center;
+    background-color: antiquewhite;
+    padding: 5px 10px 5px 10px;
+    transition: ease all 1s;
+}
+#menu-div li:hover{
+    background-color: palevioletred;
+    color:white;
+    font-weight:bold;
+    border-bottom: 3px black solid;
+}
+#parent{
+/*    background-color:firebrick;*/
+    width:inherit;
+    height: 210px;
+    font-family: cursive;
+    text-align: center;
+    border-bottom: 4px yellow solid;
+}
+#parent-marquee
+{
+    background-color: lightgreen;
+    font-size:27px;
+    font-family:inherit;
+    font-weight: bold;
+    height:40px;
+}
+.child{
+    width:150px;
+    height:160px;
+/*    background-color: aqua;*/
+    display:inline-block;
+    margin-top: 10px;
+}
+a{
+    text-decoration: none;
+    color:white;
+}
+
+
+
+
+
+

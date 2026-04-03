@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Combo and List boxes</title>
+</head>
+<body>
+    <center>
+        <form action="php-4combo-list-process.php">
+            City:<select name="combocity">
+                <option value="none">--select--</option>
+                <option value="bti" selected>Bathinda</option>
+                <option value="jal">Jalandhar</option>
+                <option value="chd">Chandigarh</option>
+            </select>
+            <br>
+            <br>
+            State:
+            <br>
+            <select name="liststate" size="4">
+                <option value="none">--select--</option>
+                <option value="pun" selected>Punjab</option>
+                <option value="him">Himachal</option>
+                <option value="har">Haryana</option>
+            </select>
+            <br>
+            <br>
+            Country:
+            <br>
+            <select name="listcoun[]" size="4" multiple>
+                <option value="none">--select--</option>
+                <option value="ind" selected>India</option>
+                <option value="ger">Germany</option>
+                <option value="esp">Espanol</option>
+                <option value="fra">le France</option>
+            </select>
+            <br>
+            <br>
+            <input type="submit" value="Submit">
+        </form>
+    </center>
+</body>
+</html>
