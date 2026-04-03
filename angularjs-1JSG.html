@@ -7,12 +7,12 @@
     <script src="js/angular.min.js"></script>
     <script>
         var module = angular.module("mymodule", []);
-        module.controller("mycontroller", function($scope) {
+        module.controller("mycontroller", function ($scope) {
             $scope.fn = "first name";
-//            $scope.st1; can be avoided from declaration
-//            $scope.st2; can be avoided from declaration
-            
-            $scope.doCopy = function() { //anonymous function
+            // $scope.st1; can be avoided from declaration
+            // $scope.st2; can be avoided from declaration
+
+            $scope.doCopy = function () { //anonymous function
                 $scope.str2 = $scope.str1;
             }
         })
